@@ -1,7 +1,7 @@
 <template>
     <div class="about-cell-common">
-        <div class="about-cell-common-left">{{content.leftLab}}</div>
-        <div class="about-cell-common-right">{{content.rightLab}}</div>
+        <div class="about-cell-common-left">{{packageInfo.leftLab}}</div>
+        <div class="about-cell-common-right">{{packageInfo.rightLab}}</div>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {
     name: 'AboutCell',
     props: {
-        content: {
+        packageInfo: {
           leftLab:String,
           rightLab:String
         }
@@ -28,13 +28,13 @@ export default {
     justify-content: space-between;
     align-items: center;
     .about-cell-common-left {
-        padding-left: 10px;
+        // padding-left: 10px;
         text-align: left;
         flex: auto;
     }
     .about-cell-common-right {
         text-align: right;
-        padding-right: 10px;
+        // padding-right: 10px;
         flex: auto;
     }
 }

@@ -1,8 +1,10 @@
 <template>
     <div class="about-cell-click">
-        <div class="left">{{content.leftLab}}</div>
-        <div class="right">{{content.rightLab}}</div>
-        <!-- <img class="arrow-right" src="../assets/estarlogo.png" alt="Arrow right"> -->
+        <div class="about-cell-click-left">{{baseInfo.leftLab}}</div>
+        <div class="about-cell-click-right">{{baseInfo.rightLab}}</div>
+        <div class="icon-super">
+            <div class="icon-about-right-arrow"></div>
+        </div>
     </div>
 </template>
 
@@ -10,7 +12,7 @@
 export default {
     name: 'about-cell-click',
     props: {
-        content: {
+        baseInfo: {
           leftLab:String,
           rightLab:String
         }
@@ -19,30 +21,31 @@ export default {
 </script>
 
 
-<style>
-.about-cell {
+<style lang="less">
+.about-cell-click {
     width: 100%;
     background-color: white;
     border: 1;
     border-bottom-color: gray;
-}
-.left {
-    padding: 10px;
-    text-align: left;
-    width: 30%;
-    display: inline-block;
-}
-.right {
-    text-align: right;
-    width: 60%;
-    display: inline-block;
-}
-
-.arrow-right {
-    text-align: right;
-    width: 20px;
-    height: 20px;
-    display: inline-block;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    .about-cell-click-left {
+        padding-left: 10px;
+        text-align: left;
+        flex: 0 0 auto;
+    }
+    .about-cell-click-right{
+        text-align: right;
+        flex: auto;
+    }
+    .icon-super {
+        flex: 0 0 30px;
+        .icon-about-left-arrow {
+        text-align: left;
+    }
+    }
 }
 
 </style>
