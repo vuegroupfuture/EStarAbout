@@ -1,7 +1,7 @@
 <template>
-    <div id="about-cell">
-        <div id="left">{{content.leftLab}}</div>
-        <div id="right">{{content.rightLab}}</div>
+    <div class="about-cell-common">
+        <div class="about-cell-common-left">{{content.leftLab}}</div>
+        <div class="about-cell-common-right">{{content.rightLab}}</div>
     </div>
 </template>
 
@@ -17,23 +17,25 @@ export default {
 }
 </script>
 
-
-<style>
-#about-cell {
+<style lang="less">
+.about-cell-common {
     width: 100%;
     background-color: white;
     border: 1;
     border-bottom-color: gray;
-}
-#left {
-    padding: 10px;
-    text-align: left;
-    width: 30%;
-    display: inline-block;
-}
-#right {
-    text-align: right;
-    width: 60%;
-    display: inline-block;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    .about-cell-common-left {
+        padding-left: 10px;
+        text-align: left;
+        flex: auto;
+    }
+    .about-cell-common-right {
+        text-align: right;
+        padding-right: 10px;
+        flex: auto;
+    }
 }
 </style>
