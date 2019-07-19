@@ -4,7 +4,7 @@
     <h5 class="estartitle">易星</h5>
     <AboutCell class="about-cell" v-for="packageInfo in packageInfos" :key="packageInfo.id" :packageInfo="packageInfo"/>
     <div class="about-cells-clickable">
-      <AboutCellClick class="about-cell-click" v-for="baseInfo in baseInfos" :key="baseInfo.id" :baseInfo="baseInfo"/>
+      <AboutCellClick @click="openNewPage(baseInfo) class="about-cell-click" v-for="baseInfo in baseInfos" :key="baseInfo.id" :baseInfo="baseInfo" "/>
     </div>
   </div>
 </template>
@@ -57,9 +57,12 @@ export default {
         rightLab: "2.1.51"
       }
       ],
-
     }
-    
+  },
+  methods: {
+    openNewPage(baseInfo) {
+      
+    }
   }
 }
 </script>
