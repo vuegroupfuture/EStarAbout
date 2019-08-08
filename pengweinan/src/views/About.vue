@@ -4,12 +4,18 @@
     <h5 class="estartitle">易星</h5>
     <AboutCell class="about-cell" v-for="packageInfo in packageInfos" :key="packageInfo.id" :packageInfo="packageInfo"/>
     <div class="about-cells-clickable">
-      <AboutCellClick @click="openNewPage(baseInfo) class="about-cell-click" v-for="baseInfo in baseInfos" :key="baseInfo.id" :baseInfo="baseInfo" "/>
+      <AboutCellClick @click="openNewPage(baseInfo)" class="about-cell-click" v-for="baseInfo in baseInfos" :key="baseInfo.id" :baseInfo="baseInfo" />
     </div>
+    sdasfdfdas
+      <div :key='index' v-for="(item,index) in selfData1" class="about-cell">
+            {{item.group}}
+          <div class="icon-about-right-arrow"></div>
+      </div>
   </div>
 </template>
 
 <script>
+import {res1, res2} from './onLineData.js'
 import AboutCell from '@/components/AboutCell.vue'
 import AboutCellClick from '@/components/AboutCellClick.vue'
 import '@/assets/icon/iconfont.css'
@@ -21,6 +27,7 @@ export default {
   },
   data:function() {
     return {
+      selfData1: res1.list,
       packageInfos:[
       {
         leftLab: "包号",
