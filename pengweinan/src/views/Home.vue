@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="navBars">
+      
+    </div>
+
+    
   </div>
 </template>
 
@@ -13,6 +16,11 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  data: function () {
+    return {
+      navTitles: ["热门", "推荐" , "女装" , "百货" , "母婴" , "手机" , "鞋包" , "电器" , "食品" , "农产品" , "猪肉" , "狗肉" , "驴肉" ,"电器" , "食品" , "农产品" , "猪肉" , "狗肉" ]
+    }
   }
 }
 </script>
