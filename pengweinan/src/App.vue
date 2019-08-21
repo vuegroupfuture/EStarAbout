@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <div id="content">
       <!-- <router-link to="/home">Home</router-link> | -->
-      <router-link to="/"></router-link>
-    </div>
+    <router-link to="/"></router-link>
     <router-view/>
   </div>
 </template>
