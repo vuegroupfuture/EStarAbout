@@ -1,11 +1,11 @@
 <template>
     <div class="navBars">
-        <span :class="[index==selected?'selected-nav':'normal-nav']" 
+        <div :class="[index==selected?'selected-nav':'normal-nav']" 
         v-for="(title, index) in navTitles" 
         :key="index" 
         @click="btnClick(index)">
         {{title}}
-        </span>
+        </div>
     </div>
     
 </template>
@@ -35,18 +35,24 @@ export default {
 
 <style lang="less">
 .navBars {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
     .selected-nav {
-        padding: 0px;
         width: 40px;
-        height: 100%;
-        display: inline-block;
-        // background-color: red;
+        height: 50px;
+        text-align: center;
+        flex: 0 0 40px;
         border-bottom: solid red;
     };
     .normal-nav {
         width: 40px;
-        // height: 100%;
-        display: inline-block;
+        height: 50px;
+        text-align: center;
+        flex: 0 0 40px;
+        
     }
 }
 
