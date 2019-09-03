@@ -1,7 +1,7 @@
 <template>
     <div class="buttons">
         <!-- <IconButton class="icon-button" v-for="(iconBtn ,index) in iconsBtns" :iconBtn=iconBtn>fds</IconButton> -->
-        <IconButton class="icon-button" v-for="(iconBtn ,index) in iconsBtns" :iconBtn=iconBtn>fds</IconButton>
+        <IconButton class="icon-button" v-for="(iconBtn ,index) in iconsBtns" :key="index" :iconBtn=iconBtn>fds</IconButton>
     </div>
 </template>
 

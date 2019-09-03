@@ -3,7 +3,8 @@
         <div :class="[index==selected?'selected-nav':'normal-nav']" 
         v-for="(title, index) in navTitles" 
         :key="index" 
-        @click="btnClick(index)">
+        @click="$emit('clickIndex', index); btnClick(index)"
+        >
         {{title}}
         </div>
     </div>

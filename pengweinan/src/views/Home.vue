@@ -1,20 +1,28 @@
 <template>
   <div class="home">
     <div class="navbar-container">
-      <Navbar class="navbar" :navTitles = navTitles ></Navbar>
+      <Navbar class="navbar" :navTitles = navTitles @clickIndex = "clickAtIndex"></Navbar>
     </div>
-    <div class="swiper">
-      <CarouselImage :carouselImages = carouselImages class="carouselImages"></CarouselImage>
+    <div class="content-container">
+      <div class="container-bgview" :style="[computedWidth, movedAnimaitonStyle]">
+        <div class="singleView" v-for="n in 10" :key="n">
+          <div class="swiper">
+            <CarouselImage :carouselImages = carouselImages class="carouselImages"></CarouselImage>
+          </div>
+          <div class="icons">
+            <IconButtons class="iconButtons" :iconsBtns = iconButtons></IconButtons>
+          </div>
+          <CommodityCell class="commodityCell" v-for="(info, index) in commodityInfo" :key="index" :cellInfo = info></CommodityCell>
+        </div>
+      </div>
     </div>
-    <div class="icons">
-      <IconButtons class="iconButtons" :iconsBtns = iconButtons></IconButtons>
-    </div>
-    <CommodityCell class="commodityCell" v-for="(info, index) in commodityInfo" :key="index" :cellInfo = info></CommodityCell>
+    
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import {navTitles, carouselImages, iconButtons, commodityInfo} from './onLineData.js'
 import HelloWorld from '@/components/HelloWorld.vue'
 import Navbar from '@/components/Navbar.vue'
 import CarouselImage from '@/components/CarouselImage.vue'
@@ -129,8 +137,27 @@ export default {
         price: 7.99,
         sellAmount: 129939
         }
-      ]
+      ],
+      computedWidth: {
+        width: `${15 * 414}px`
+      },
+      currentIndex: 0,
+      distance: 0
       
+    }
+  },
+  computed: {
+    movedAnimaitonStyle () {
+      return {
+        transform: `translated3d(${this.distance})px`
+      }
+    }
+  },
+  methods: {
+    clickAtIndex: function (index) {
+      var tmpIndex = index - this.currentIndex
+      this.currentIndex = index;
+      this.distance = tmpIndex * 414
     }
   }
 }
@@ -149,27 +176,44 @@ export default {
     overflow-x: scroll;
   }
   }
-  .swiper {
+  .content-container {
     width: 100%;
-    height: 120px;
-    .carouselImages {
+    height: 750px;
+    .container-bgview {
       width: 100%;
       height: 100%;
+      overflow-x: scroll;
+      display: flex;
+      .singleView {
+        width: 414px;
+        height: 100%;
+        flex: 0 0 414px;
+        .swiper {
+          width: 100%;
+          height: 120px;
+          overflow: hidden;
+          .carouselImages {
+          width: 100%;
+          height: 100%;
+          } 
+        }
+        .icons {
+          width: 100%;
+          height: 140px;
+          .iconButtons {
+          width: 100%;
+          height: 100%;
+          }
+        }
+        .commodityCell {
+          width: 100%;
+          height: 140px;
+          margin-top: 10px;
+        }
+      }
     }
   }
-  .icons {
-    width: 100%;
-    height: 140px;
-    .iconButtons {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .commodityCell {
-    width: 100%;
-    height: 140px;
-    margin-top: 10px;
-  }
+  
   
 }
 </style>
