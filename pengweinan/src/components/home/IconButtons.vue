@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import IconButton from '@/components/IconButton.vue'
+import IconButton from '@/components/home/IconButton.vue'
 
 export default {
     name: 'iconButton',

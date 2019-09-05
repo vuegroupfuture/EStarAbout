@@ -5,7 +5,8 @@
     </div>
     <div class="content-container">
       <div class="container-bgview" :style="[computedWidth, movedAnimaitonStyle]">
-        <div class="singleView" v-for="n in 10" :key="n">
+        <div class="singleView" v-for="(item, index) in navTitles" :key="index">
+          <div class="nn">{{index}}</div>
           <div class="swiper">
             <CarouselImage :carouselImages = carouselImages class="carouselImages"></CarouselImage>
           </div>
@@ -23,11 +24,11 @@
 <script>
 // @ is an alias to /src
 import {navTitles, carouselImages, iconButtons, commodityInfo} from './onLineData.js'
-import HelloWorld from '@/components/HelloWorld.vue'
-import Navbar from '@/components/Navbar.vue'
-import CarouselImage from '@/components/CarouselImage.vue'
-import IconButtons from '@/components/IconButtons.vue'
-import CommodityCell from '@/components/CommodityCell.vue'
+import HelloWorld from '@/components/home/HelloWorld.vue'
+import Navbar from '@/components/home/Navbar.vue'
+import CarouselImage from '@/components/home/CarouselImage.vue'
+import IconButtons from '@/components/home/IconButtons.vue'
+import CommodityCell from '@/components/home/CommodityCell.vue'
 
 export default {
   name: 'home',
@@ -149,15 +150,16 @@ export default {
   computed: {
     movedAnimaitonStyle () {
       return {
-        transform: `translated3d(${this.distance})px`
+        transform: `translate3d(${this.distance}px, 0, 0)`
       }
     }
   },
   methods: {
     clickAtIndex: function (index) {
-      var tmpIndex = index - this.currentIndex
+      var tmpIndex = this.currentIndex- index
       this.currentIndex = index;
-      this.distance = tmpIndex * 414
+      this.distance += (tmpIndex * 414)
+      console.log('distanceeeee =' +this.distance)
     }
   }
 }
@@ -179,6 +181,7 @@ export default {
   .content-container {
     width: 100%;
     height: 750px;
+    overflow: hidden;
     .container-bgview {
       width: 100%;
       height: 100%;

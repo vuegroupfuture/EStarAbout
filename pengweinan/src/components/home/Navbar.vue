@@ -3,7 +3,7 @@
         <div :class="[index==selected?'selected-nav':'normal-nav']" 
         v-for="(title, index) in navTitles" 
         :key="index" 
-        @click="$emit('clickIndex', index); btnClick(index)"
+        @click="btnClick(index)"
         >
         {{title}}
         </div>
@@ -28,6 +28,8 @@ export default {
     methods: {
         btnClick: function(index) {
             this.selected = index;
+            console.log('distanceeeee =' +index)
+            this.$emit('clickIndex',index)
         }
     }
     
