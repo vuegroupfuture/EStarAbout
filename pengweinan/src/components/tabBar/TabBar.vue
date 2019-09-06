@@ -1,6 +1,12 @@
 <template>
     <div class="tab-bg">
-        <TabBarItem class="iconItem" :style="WitdhAdjust" v-for="(item, index) in tabBarItems" :key="index" :item = item></TabBarItem>
+        <TabBarItem class="iconItem" 
+        :class="[index == currentIndex ? 'selectedItem' : 'normalItem']"
+        :style="WitdhAdjust" 
+        v-for="(item, index) in tabBarItems" :key="index" 
+        :item = item
+        @click.native="selectedItem(index)"
+        ></TabBarItem>
     </div>
 </template>
 
@@ -30,7 +36,8 @@ export default {
                     icon: "icon-my",
                     title: "我的"
                 }
-            ]
+            ],
+            currentIndex: 0
         }
     },
     computed: {
@@ -38,6 +45,12 @@ export default {
             return {
                 width: `${414/this.tabBarItems.length}px`
             }
+        }
+    },
+    methods: {
+        selectedItem(index) {
+            console.log('indexxx =' + index)
+            this.currentIndex = index
         }
     }
 }
@@ -48,8 +61,15 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
+    background-color: white;
     .iconItem {
         flex: none;
+    }
+    .selectedItem {
+        color: green;
+    }
+    .normalItem {
+        color: black;
     }
 }
 </style>

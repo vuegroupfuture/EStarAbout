@@ -167,8 +167,8 @@ export default {
 
 <style lang="less">
 .home {
-  width: 414px;
-  height: 800px;
+  width: 100%;
+  height: 100%;
   overflow-y: scroll;
   .navbar-container {
   width: 100%;

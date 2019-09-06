@@ -1,7 +1,7 @@
 <template>
     <div class="item">
-        <div class="icon"></div>
-        <div class="title"></div>
+        <div class="icon" :class="item.icon"></div>
+        <div class="title">{{item.title}}</div>
     </div>
 </template>
 
@@ -22,9 +22,11 @@ export default {
     width: 100%;
     height: 100%;
     .icon {
-        padding:0 25% 5px;
+        font-size: 17px;
+        padding:10% 25% 5px;
     }
     .title {
+        font-size: 14px;
         padding: 0 25%;
     }
 }
