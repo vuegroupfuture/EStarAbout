@@ -2,7 +2,7 @@
     <div class="tab-bg">
         <TabBarItem class="iconItem" 
         :class="[index == currentIndex ? 'selectedItem' : 'normalItem']"
-        :style="WitdhAdjust" 
+        :style="WitdhAdjust"
         v-for="(item, index) in tabBarItems" :key="index" 
         :item = item
         @click.native="selectedItem(index)"
@@ -51,6 +51,7 @@ export default {
         selectedItem(index) {
             console.log('indexxx =' + index)
             this.currentIndex = index
+            this.$emit('selectedBarIndex',index)
         }
     }
 }
@@ -66,7 +67,7 @@ export default {
         flex: none;
     }
     .selectedItem {
-        color: green;
+        color: red;
     }
     .normalItem {
         color: black;
