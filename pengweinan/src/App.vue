@@ -2,9 +2,20 @@
   <div id="app">
       <!-- <router-link to="/home">Home</router-link> | -->
     <!-- <router-link to="/"></router-link> -->
-    <router-view/>
+    <!-- <router-view/> -->
+    <PDD id="pdd"></PDD>
   </div>
 </template>
+
+<script>
+import PDD from './views/PDD.vue'
+export default {
+  name: 'app',
+  components: {
+    PDD
+  }
+}
+</script>
 
 <style lang="less">
 @import './assets/icon/iconfont.css';
@@ -37,5 +48,10 @@ body {
 
 #app {
     height: 100%;
+    .pdd {
+      width: 100%;
+      height: 100%;
+    }
 }
+
 </style>

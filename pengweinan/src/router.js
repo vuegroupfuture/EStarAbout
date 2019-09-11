@@ -5,6 +5,7 @@ import PDD from './views/PDD.vue'
 import Search from './components/search/Search.vue'
 import Chat from './components/chat/Chat.vue'
 import MyPersonal from './components/my/MyPersonal.vue'
+import Blank from './components/Blank.vue'
 
 Vue.use(Router)
 
@@ -13,12 +14,19 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: Home
+      component: Home,
+      
     },
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: 'blank',
+          component: Blank
+        }
+      ]
     },
     {
       path: '/search',
@@ -41,7 +49,13 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/PDD.vue')
+      component: () => import(/* webpackChunkName: "about" */ './views/Home.vue'),
+      children: [
+        {
+          path: 'blank',
+          component: () => import(/* webpackChunkName: "about" */ './components/Blank.vue'),
+        }
+      ]
     }
   ]
 })

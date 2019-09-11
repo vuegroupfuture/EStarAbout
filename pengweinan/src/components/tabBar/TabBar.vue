@@ -63,6 +63,7 @@ export default {
     height: 100%;
     display: flex;
     background-color: white;
+    border-top: 1px solid black;
     .iconItem {
         flex: none;
     }

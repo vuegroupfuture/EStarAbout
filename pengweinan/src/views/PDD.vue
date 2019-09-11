@@ -30,7 +30,8 @@ export default {
     },
     data: function() {
         return {
-            mainViews: ["home","search","chat","mypersonal"]
+            mainViews: ["home","search","chat","mypersonal"],
+            selected: 'home'
         }
     },
     mounted: function() {
@@ -49,7 +50,7 @@ export default {
         init() {
             // this.$router.replace(this.mainViews[0])
         }
-    }
+    },
 }
 </script>
 
@@ -61,7 +62,7 @@ export default {
     position: relative;
     .main-views {
         width: 400%;
-        height: 686px;
+        height: 666px;
         display: flex;
         flex-flow: row nowrap;
         .home {
@@ -85,7 +86,7 @@ export default {
     .tabbar {
         position: absolute;
         width: 100%;
-        height: 50px;
+        height: 70px;
         bottom: 0px;
     }
 }

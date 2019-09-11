@@ -13,11 +13,15 @@
           <div class="icons">
             <IconButtons class="iconButtons" :iconsBtns = iconButtons></IconButtons>
           </div>
-          <CommodityCell class="commodityCell" v-for="(info, index) in commodityInfo" :key="index" :cellInfo = info></CommodityCell>
+          <CommodityCell class="commodityCell" 
+          v-for="(info, index) in commodityInfo" :key="index" 
+          :cellInfo = info
+          @toBlank = 'toBlank'
+          ></CommodityCell>
         </div>
       </div>
     </div>
-    
+    <router-view></router-view>
   </div>
 </template>
 
@@ -160,6 +164,9 @@ export default {
       this.currentIndex = index;
       this.distance += (tmpIndex * 414)
       console.log('distanceeeee =' +this.distance)
+    },
+    toBlank () {
+      this.$router.push({path: '/home/blank'})
     }
   }
 }

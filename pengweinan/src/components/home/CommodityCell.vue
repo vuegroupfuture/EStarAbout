@@ -1,5 +1,5 @@
 <template>
-    <div class="commodity">
+    <div class="commodity" @click="clickBtn">
         <div class="image">
             <img class="img" :src="cellInfo.image" alt="commodity">
         </div>
@@ -14,9 +14,11 @@
                 <div class="sell-amount">已拼{{cellInfo.sellAmount}}件</div>
             </div>
         </div>
+        
     </div>
 </template>
 <script>
+import Black from '../Blank.vue'
 export default {
     name: 'commodityCell',
     props: {
@@ -26,6 +28,12 @@ export default {
             storeName: String,
             price: Number,
             sellAmount: Number
+        }
+    },
+    methods: {
+        clickBtn() {
+            this.$emit('toBlank')
+            // this.$router.push({path: '/home/blank'})
         }
     }
 }
