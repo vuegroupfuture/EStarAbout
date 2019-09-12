@@ -1,6 +1,6 @@
 <template>
     <div class="search">
-        <div class="title">搜索</div>
+        <div class="search-title">搜索</div>
         <div class="container">
             <div class="commodity-type-list">
                <div class="commodity" :class="[(selected == index)? 'selectedCommodity' : 'normalCommodity']"
@@ -10,7 +10,7 @@
                >{{commodity}}</div>
             </div>
             <div class="right-commodities">
-                <SingleCommodity class="single-commodity" commodityName = '家店'></SingleCommodity>
+                <SingleCommodity v-for="n in commodityTypeList.length" class="single-commodity" commodityName = '家店'></SingleCommodity>
             </div>
         </div>
         
@@ -35,14 +35,10 @@ export default {
     methods: {
         selectedIndex: function(index) {
             this.selected = index
+            document.documentElement.scrollTop=100;
         }
     },
     computed: {
-        // commodityListHeight () {
-        //     return {
-        //         width: `${this.commodityTypeList.length * this.commodityCellHeight}px`
-        //     }
-        // },
         commodityHeight () {
             return {
                 height: `${this.commodityCellHeight}px`
@@ -55,7 +51,7 @@ export default {
 
 <style lang="less">
 .search {
-    .title {
+    .search-title {
         width: 100%;
         height: 5%;
         text-align: center;
@@ -98,9 +94,10 @@ export default {
             width: 80%;
             height: 100%;
             background-color: green;
+            overflow-y: scroll;
             .single-commodity {
                 width: 100%;
-                height:200px;
+                height:420px;
                 background-color: red;
             }
         }
